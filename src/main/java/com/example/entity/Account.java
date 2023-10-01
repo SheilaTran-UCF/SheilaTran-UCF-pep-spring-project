@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 /**
  * This is a class that models an Account.
@@ -18,10 +19,12 @@ public class Account {
     /**
      * A username for this Account (must be unique and not blank)
      */
+    @NotBlank(message = "username not blank")
     private String username;
     /**
      * A password for this account (must be over 4 characters)
      */
+    @NotBlank(message = "password not blank")
     private String password;
     /**
      * A default, no-args constructor, as well as correctly formatted getters and setters, are needed for

@@ -1,6 +1,8 @@
 package com.example.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 /**
  * This is a class that models a Message.
@@ -26,6 +28,8 @@ public class Message {
      * The text for this message- eg "this is my first post!". Must be not blank and under 255 characters
      */
     @Column (name="message_text")
+    @NotBlank(message = "mesage_text not blank")
+    @Size(max = 255, message = "message_text is under 255 characters")
     private String message_text;
     /**
      * The epoch time when this tweet was posted (number of seconds since Jan 1, 1970). Longs are large enough
